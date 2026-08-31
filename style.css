@@ -1,13 +1,37 @@
+:root {
 
-#buttoncontainer {
-    position: absolute;
-    border: solid black 5px;
-    justify-self: center;
-    align-self: center;
-    top: 40vh;
+    --center-self: 
+
+} 
+
+body {
+    margin: auto;
 }
 
 #start {
-   
-    
+    margin-top: 40vh;
+    height: 5vh;
+    width: 5vw;
+    display: block;
+    border: solid black 2px;
+    justify-self: center;
+    align-self: center;
 }
+
+#game {
+  display: none;
+}
+
+#game:fullscreen {
+    
+    margin-top: auto;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+}
+
+.johnsRoom {
+    width: 100vw;
+    height: 100vh;
+}
+
