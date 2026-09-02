@@ -1,4 +1,5 @@
 
+
 /* Starts fullscreen */
 
 const game = document.getElementById("game");
@@ -54,24 +55,24 @@ const rooms = document.querySelectorAll("section");
 
 
 hyperlinks.forEach((Links, currentlink) => {
-   
-    
-    
-    Links.addEventListener("click", ()=>{
 
-        
-        const startingRoom = document.getElementById("starting-room")
-        startingRoom.style.display = "none";
+    Links.addEventListener("click", () => {
 
-        rooms.forEach(room => {
-            room.style.display = "none";
-        })
-       
+        startingRoom.style.transition = "3s";
+        startingRoom.style.opacity = "0";
+
         rooms[currentlink].style.display = "block";
-        rooms[currentlink].style.opacity = "1";
-       
-        
-        console.log(rooms[currentlink])
+
+        showRoomNumber()
+
+        setTimeout(() => {
+
+            rooms[currentlink].style.opacity = "1";
+
+        }, 5500);
+
+
+        console.log(rooms[currentlink]);
     });
 
 });
@@ -84,42 +85,65 @@ const startingRoom = document.getElementById("starting-room")
 
 function startGame() {
 
-    startingRoom.style.transition = "5s"
+    startingRoom.style.transition = "3s";
     startingRoom.style.opacity = "0";
- 
-    openingScene()
 
-    console.log("started!")
+    rooms[0].style.display = "block";
+
+    console.log("started!");
+
+    showRoomNumber()
+
+    setTimeout(() => {
+        
+        startingRoom.style.display = "none";
+        // rooms[0].style.display = "block";
+
+    }, 5000);
+
+    setTimeout(() => {
+
+        rooms[0].style.opacity = "1";
+
+    }, 5500);
 
 }
 
 
-let firstRoomTimer;
-let firstRoomTimer2;
-
-function openingScene() {
-    firstRoomTimer = setTimeout(function() {
-
-        startingRoom.style.display = "none"
-
-
-
-        firstRoom()
-
-    }, 5000);
-} 
-
+/* Hides all rooms */
 rooms.forEach(room => {
     room.style.display = "none";
 })
 
-function firstRoom() {
+/* Shows number of room inbetween room changes */
+const roomNumber = document.getElementById("room-number")
 
-    rooms[0].style.opacity = "1"
-    rooms[0].style.display = "block"
+function showRoomNumber() {
 
-    clearTimeout(firstRoomTimer);
+rooms.forEach((section, currentRoom) => {
+
+    if(section.style.display === "block") {
+
+            setTimeout(() => {
+                roomNumber.style.display = "block";
+                roomNumber.innerHTML = currentRoom + 1
+            },3000)
+            setTimeout(() => {
+                roomNumber.style.opacity = "1";
+            }, 3100)
+            setTimeout(() => {
+                roomNumber.style.opacity = "0"
+            },5000 )
+            setTimeout(() => {
+                roomNumber.style.display = "none"
+            },6000)
+
+        console.log("you are in room ",currentRoom + 1)
+    }
+
+})
 
 }
 
 
+  
