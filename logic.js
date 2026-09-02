@@ -10,56 +10,113 @@ start.addEventListener("click", ()=> {
 
 });
 
+/* Takes you to the menu */
+
 // document.addEventListener("keydown", (eventESC)=> {
 //     if(eventESC.key === "Escape") {
 
-//         console.log("")
+//         game.requestFullscreen()
+        
+//         console.log("meny")
 
 //     }
 // });
 
-/* starts the game */
-const beginBtn = document.getElementById("begin-btn");
-
-function startGame() {
-
-    const rooms = document.querySelectorAll("section")
-    let currentRoom = 0;
-
-
-    const startingRoom = document.getElementById("starting-room")
-
-    startingRoom.style.display = "none";
-    rooms[currentRoom].style.opacity = "100";
-    console.log("started!")
-
-};
 
 /*Nav bar Gateways*/
 
 const menuIcon = document.getElementById("menu-icon");
+const doorParent = document.getElementById("door-container");
+
 
 menuIcon.addEventListener("click", ()=>{
 
-    const doorParent = document.getElementById("door-container");
+    if(doorParent.className === "door-icon-hidden") {
 
-    doorParent.classList.remove("door-icon-hidden")
-    doorParent.classList.add("door-icon-show")
+        doorParent.classList.remove("door-icon-hidden")
+        doorParent.classList.add("door-icon-show")
 
-    console.log("doors showing")
+        menuIcon.style.rotate = "0 0 1 90deg"
+
+    } else {
+
+        doorParent.classList.remove("door-icon-show")
+        doorParent.classList.add("door-icon-hidden")
+
+        menuIcon.style.rotate = "0 0 1 0deg"
+
+    }
+
+});
+
+const hyperlinks = doorParent.querySelectorAll("a");
+const rooms = document.querySelectorAll("section");
+
+
+hyperlinks.forEach((Links, currentlink) => {
+   
+    
+    
+    Links.addEventListener("click", ()=>{
+
+        
+        const startingRoom = document.getElementById("starting-room")
+        startingRoom.style.display = "none";
+
+        rooms.forEach(room => {
+            room.style.display = "none";
+        })
+       
+        rooms[currentlink].style.display = "block";
+        rooms[currentlink].style.opacity = "1";
+       
+        
+        console.log(rooms[currentlink])
+    });
 
 });
 
 
-/* Finds all room and changes them */
+/* Opening Scene */
 
-const rooms = document.querySelectorAll("section")
-let currentRoom = 0;
+const beginBtn = document.getElementById("begin-btn");
 
-function roomChanger() {
+function startGame() {
 
-    
-    
+    const startingRoom = document.getElementById("starting-room")
 
-};
+    startingRoom.style.transition = "5s"
+    startingRoom.style.opacity = "0";
+ 
+    openingScene()
+
+    console.log("started!")
+
+}
+
+
+let firstRoomTimer;
+
+function openingScene() {
+    firstRoomTimer = setTimeout(function() {
+
+       
+
+        firstRoom()
+
+    }, 10000);
+} 
+
+rooms.forEach(room => {
+    room.style.display = "none";
+})
+
+function firstRoom() {
+
+    rooms[0].style.opacity = "1"
+
+    clearTimeout(firstRoomTimer);
+
+}
+
 
