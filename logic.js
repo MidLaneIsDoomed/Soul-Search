@@ -72,7 +72,6 @@ hyperlinks.forEach((Links, currentlink) => {
         }, 5500);
 
 
-        console.log(rooms[currentlink]);
     });
 
 });
@@ -97,7 +96,6 @@ function startGame() {
     setTimeout(() => {
         
         startingRoom.style.display = "none";
-        // rooms[0].style.display = "block";
 
     }, 5000);
 
@@ -145,5 +143,13 @@ rooms.forEach((section, currentRoom) => {
 
 }
 
+/* Gateway to next room */
+
+const game = document.getElementById("game")
+
+
+gateways.forEach(gateway => {
+    
+}) 
 
   

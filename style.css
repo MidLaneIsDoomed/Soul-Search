@@ -59,6 +59,19 @@ body {
     top: 15vw;
     font-size: 20vw;
     z-index: 1000;
+    font-family: cinzel;
+}
+
+.gateways {
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 1);
+    position: absolute;
+    border-radius: 0.2vw;
+    bottom: 8.5vw;
+    left: 41vw;
+    width: 18.5vw;
+    height: 37.6vw;
+    opacity: 1;
 }
 
 /*#region Starting Room*/
