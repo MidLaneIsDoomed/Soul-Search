@@ -1,5 +1,5 @@
 
-
+/*#region before Game*/
 body {
     margin: auto;
 }
@@ -26,10 +26,25 @@ body {
     height: 100vh;
 }
 
+/*#endregion */
+
+
+/* Main room */
 .johnsRoom {
     width: 100vw;
     height: 100vh;
 }
+
+.rooms {
+    z-index: 1;
+    top: 0vh;
+    
+    display: block ;
+    transition: 2s;
+    opacity: 0%;
+}
+
+/*#region Starting Room*/
 
 #starting-room {
     margin: 0;
@@ -52,14 +67,38 @@ body {
     transition: 2s;
 }
 
-
-
-.rooms {
-    z-index: 1;
+.starting-room-navbar {
+    display: flex;
+    background-color: rgba(61, 61, 61, 0.375);
+    width: 100%;
+    height: 9vh;
     top: 0vh;
-    
-    display: block ;
-    transition: 2s;
-    opacity: 0%;
+    position: fixed;
 }
+
+.starting-room-navbar * {
+    padding: 10px 10px 10px 10px;
+}
+
+#menu-icon {
+    width: 3.8vw;
+    
+}
+
+#door-container {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.door-icon-show img {
+    width: 3.5vw;
+}
+
+.door-icon-hidden img {
+    display: none;
+}
+
+/*#endregion*/
 
