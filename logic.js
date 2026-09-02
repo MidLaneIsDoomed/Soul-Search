@@ -56,6 +56,8 @@ const rooms = document.querySelectorAll("section");
 
 hyperlinks.forEach((Links, currentlink) => {
 
+   
+
     Links.addEventListener("click", () => {
 
         startingRoom.style.transition = "3s";
@@ -63,8 +65,20 @@ hyperlinks.forEach((Links, currentlink) => {
 
         rooms[currentlink].style.display = "block";
 
-        showRoomNumber()
-
+        setTimeout(() => {
+            roomNumber.style.display = "block";
+            roomNumber.innerHTML =  currentlink + 1
+        },3000)
+        setTimeout(() => {
+            roomNumber.style.opacity = "1";
+        }, 3100)
+        setTimeout(() => {
+            roomNumber.style.opacity = "0"
+        },5000 )
+        setTimeout(() => {
+            roomNumber.style.display = "none"
+        },6000)
+      
         setTimeout(() => {
 
             rooms[currentlink].style.opacity = "1";
@@ -91,19 +105,31 @@ function startGame() {
 
     console.log("started!");
 
-    showRoomNumber()
+    setTimeout(() => {
+        roomNumber.style.display = "block";
+        roomNumber.innerHTML = "1";
+    },2900) 
 
     setTimeout(() => {
-        
-        startingRoom.style.display = "none";
-
-    }, 5000);
+        roomNumber.style.opacity = "1";
+    },3000)
 
     setTimeout(() => {
+        roomNumber.style.opacity = "0";
+    },4500)
 
+    setTimeout(() => {
+        roomNumber.innerHTML = "";
+    }, 6000);
+
+    setTimeout(() => {
+        roomNumber.style.display = "none";
+    },6000)
+
+    setTimeout(() => {
         rooms[0].style.opacity = "1";
-
-    }, 5500);
+        startingRoom.style.display = "none";
+    }, 5000);
 
 }
 
@@ -120,11 +146,13 @@ function showRoomNumber() {
 
 rooms.forEach((section, currentRoom) => {
 
+    let showCurrentRoom = currentRoom + 1;
+
     if(section.style.display === "block") {
 
             setTimeout(() => {
                 roomNumber.style.display = "block";
-                roomNumber.innerHTML = currentRoom + 1
+                roomNumber.innerHTML = showCurrentRoom + 1
             },3000)
             setTimeout(() => {
                 roomNumber.style.opacity = "1";
@@ -144,12 +172,29 @@ rooms.forEach((section, currentRoom) => {
 }
 
 /* Gateway to next room */
+const gateways = document.querySelectorAll(".gateways")
 
-const game = document.getElementById("game")
-
-
-gateways.forEach(gateway => {
+gateways.forEach((gateway, currentGateway) => {
     
+    gateway.addEventListener("click", () => {
+        
+        rooms[currentGateway].style.opacity = "0"
+
+        showRoomNumber()
+
+        setTimeout(() => {
+            rooms[currentGateway].style.display = "none"
+        },2500)
+        setTimeout(() => {
+            rooms[currentGateway + 1].style.display = "block"
+        },6000)
+        setTimeout(() => {
+            rooms[currentGateway + 1].style.opacity = "1"
+        },6100)
+
+        console.log("pressed")
+    })
+
 }) 
 
   
