@@ -80,10 +80,9 @@ hyperlinks.forEach((Links, currentlink) => {
 /* Opening Scene */
 
 const beginBtn = document.getElementById("begin-btn");
+const startingRoom = document.getElementById("starting-room")
 
 function startGame() {
-
-    const startingRoom = document.getElementById("starting-room")
 
     startingRoom.style.transition = "5s"
     startingRoom.style.opacity = "0";
@@ -96,15 +95,18 @@ function startGame() {
 
 
 let firstRoomTimer;
+let firstRoomTimer2;
 
 function openingScene() {
     firstRoomTimer = setTimeout(function() {
 
-       
+        startingRoom.style.display = "none"
+
+
 
         firstRoom()
 
-    }, 10000);
+    }, 5000);
 } 
 
 rooms.forEach(room => {
@@ -114,6 +116,7 @@ rooms.forEach(room => {
 function firstRoom() {
 
     rooms[0].style.opacity = "1"
+    rooms[0].style.display = "block"
 
     clearTimeout(firstRoomTimer);
 
