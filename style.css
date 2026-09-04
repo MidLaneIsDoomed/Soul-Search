@@ -4,6 +4,11 @@
     src: url(Fonts/Cinzel-VariableFont_wght.ttf);
 }
 
+@font-face {
+    font-family: roboto;
+    src: url(Fonts/RobotoMono-VariableFont_wght.ttf);
+}
+
 /*#region before Game*/
 body {
     margin: auto;
@@ -179,3 +184,90 @@ body {
 
 /*#endregion*/
 
+
+/* Opening scene */
+
+#opening-scene {
+    display: none;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes redOverlay {
+    from {opacity: 0;}
+    to {opacity: 0.3;}
+}
+#red-cover {
+    position: absolute;
+    z-index: 1000;
+    background-color: red;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    animation-name: redOverlay;
+    animation-duration: 20s;
+}
+
+#your-fault-container {
+    z-index: 100;
+    position: absolute;
+}
+
+#your-fault-container p {
+    margin: 0;
+    color: white;
+    font-size: 7.5vw;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+@keyframes your-fault-left-animation {
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(80%);}
+}
+.your-fault-left {
+    animation-name: your-fault-left-animation;
+    animation-duration: 40s;
+}
+
+@keyframes your-fault-right-animation {
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(-80%);}
+}
+.your-fault-right {
+    animation-name: your-fault-right-animation;
+    animation-duration: 40s;
+}
+
+#johns-friend-img {
+    position: absolute;
+    width: 25vw;
+    height: 25vw;
+    top: 35vh;
+    left: 30vw;
+    z-index: 101;
+    display: none;
+}
+
+#johns-friend2-img {
+    position: absolute;
+    width: 18vw;
+    height: 20vw;
+    top: 25vh;
+    right: 30vw;
+    z-index: 102;
+    display: none;
+}
+
+#no-container {
+    color: white;
+    font-size: 3vw;
+    position: absolute;
+    z-index: 103;
+}

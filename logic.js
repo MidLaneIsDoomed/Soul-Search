@@ -16,7 +16,12 @@ start.addEventListener("click", ()=> {
 // document.addEventListener("keydown", (eventESC)=> {
 //     if(eventESC.key === "Escape") {
 
-//         game.requestFullscreen()
+//        if(startingRoom.style.display === "none") {
+
+//         startingRoom.style.display = "block",
+
+
+//        }
         
 //         console.log("meny")
 
@@ -95,6 +100,10 @@ hyperlinks.forEach((Links, currentlink) => {
 
 const beginBtn = document.getElementById("begin-btn");
 const startingRoom = document.getElementById("starting-room")
+const openingScene = document.getElementById("opening-scene")
+
+const johnsFriendIMG = document.getElementById("johns-friend-img")
+const johnsFriend2IMG = document.getElementById("johns-friend2-img")
 
 function startGame() {
 
@@ -106,30 +115,69 @@ function startGame() {
     console.log("started!");
 
     setTimeout(() => {
-        roomNumber.style.display = "block";
-        roomNumber.innerHTML = "1";
-    },2900) 
-
-    setTimeout(() => {
-        roomNumber.style.opacity = "1";
+        startingRoom.style.display = "none";
+        openingScene.style.display = "flex"
     },3000)
 
     setTimeout(() => {
-        roomNumber.style.opacity = "0";
-    },4500)
+        johnsFriendIMG.style.display = "block"
+        
+            setTimeout(() => {
+                    johnsFriend2IMG.style.display = "block"
+                    openingSceneChangeText()
+            },1000)
+
+    },3500)
 
     setTimeout(() => {
-        roomNumber.innerHTML = "";
-    }, 6000);
 
-    setTimeout(() => {
-        roomNumber.style.display = "none";
-    },6000)
+        setTimeout(() => {
+            roomNumber.style.display = "block";
+            roomNumber.innerHTML = "1";
+        },2900) 
 
-    setTimeout(() => {
-        rooms[0].style.opacity = "1";
-        startingRoom.style.display = "none";
-    }, 5000);
+        setTimeout(() => {
+            roomNumber.style.opacity = "1";
+        },3000)
+
+        setTimeout(() => {
+            roomNumber.style.opacity = "0";
+        },4500)
+
+        setTimeout(() => {
+            roomNumber.innerHTML = "";
+        }, 6000);
+
+        setTimeout(() => {
+            roomNumber.style.display = "none";
+        },6000)
+
+        setTimeout(() => {
+            rooms[0].style.opacity = "1";
+        }, 5000);
+
+    }, 20000)
+
+}
+
+const openingSceneTextsContainer = document.getElementById("your-fault-container");
+const openingSceneTexts = openingSceneTextsContainer.querySelectorAll("p")
+
+function openingSceneChangeText() {
+
+    openingSceneTexts.forEach(texts => {
+        texts.style.color = "red"
+        texts.innerText = ""
+        texts.innerHTML = "YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT YOU DID IT"
+    })
+
+}
+
+const noContainer = document.getElementById("no-container")
+
+function createNo() {
+
+    
 
 }
 
@@ -193,6 +241,8 @@ gateways.forEach((gateway, currentGateway) => {
         },6100)
 
         console.log("pressed")
+
+        return 
     })
 
 }) 
