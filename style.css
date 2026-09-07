@@ -187,6 +187,17 @@ body {
 
 /* Opening scene */
 
+
+@keyframes saturationUltra {
+    from{ 
+        filter: saturate(100%); 
+        
+    }
+
+    to{
+        filter: saturate(400%);
+    }
+}
 #opening-scene {
     display: none;
     position: absolute;
@@ -196,12 +207,14 @@ body {
     height: 100%;
     justify-content: center;
     align-items: center;
+    animation-name: saturationUltra;
+    animation-duration: 10s;
 }
 
-@keyframes redOverlay {
+/* @keyframes redOverlay {
     from {opacity: 0;}
     to {opacity: 0.3;}
-}
+} */
 #red-cover {
     position: absolute;
     z-index: 1000;
