@@ -120,19 +120,12 @@ function startGame() {
 
     let volume = 0;
 
-    // const fadeIn1 = setInterval(() => {
-    //     volume += 0.01;
-    //     staticSound.volume = volume;    
-    // },1000)
-
     setTimeout(() => {
-
-        // clearInterval(fadeIn1);
 
         const fadeIn2 = setInterval(() => {
             volume += 0.01;
             staticSound.volume = volume;
-            // console.log("audio raised")
+           
 
             if(volume >= 0.7) {
                 clearInterval(fadeIn2);
@@ -150,13 +143,28 @@ function startGame() {
 
     setTimeout(() => {
         johnsFriendIMG.style.display = "block"
+
+        johnsFriendsImgGlitches();
         
             setTimeout(() => {
                     johnsFriend2IMG.style.display = "block"
                     openingSceneChangeText()
             },1000)
 
+            setTimeout(() => {
+                createNo();
+            }, 4000)
+
     },3500)
+
+
+    setTimeout(() => {
+        openingScene.style.display = "none"
+        clearInterval(noTimer);
+        clearInterval(johnsFriendsImgGlitchesTimer)
+        staticSound.pause();
+    }, 15000)
+
 
     setTimeout(() => {
 
@@ -189,6 +197,8 @@ function startGame() {
 
 }
 
+
+
 const openingSceneTextsContainer = document.getElementById("your-fault-container");
 const openingSceneTexts = openingSceneTextsContainer.querySelectorAll("p")
 
@@ -202,13 +212,50 @@ function openingSceneChangeText() {
 
 }
 
+
 const noContainer = document.getElementById("no-container")
+let noTimer;
 
 function createNo() {
 
-    
+    noTimer = setInterval( () => {
+
+        let noElement = document.createElement("p")
+
+        noElement.innerText = "No"
+        
+        const x = Math.random() * window.innerWidth - 50;
+        const y = Math.random() * window.innerHeight - 230;
+
+        noElement.style.left = x + "px";
+        noElement.style.top = y + "px";
+
+
+        noContainer.appendChild(noElement)
+
+    }, 25)
 
 }
+
+
+let johnsFriendsImgGlitchesTimer;
+
+function johnsFriendsImgGlitches() {
+
+    johnsFriendsImgGlitchesTimer = setInterval(() => {
+
+        johnsFriendIMG.style.opacity = Math.random() + 0.2;
+        johnsFriend2IMG.style.opacity = Math.random() + 0.2;
+
+        johnsFriendIMG.style.scale = Math.random() * 0.3 + 0.9;
+        johnsFriend2IMG.style.scale = Math.random() * 0.3 + 0.9;
+
+    }, 60)
+
+}
+
+
+const darkOverlay = document.getElementById("opening-scene-dark-overlay")
 
 
 /* Hides all rooms */
