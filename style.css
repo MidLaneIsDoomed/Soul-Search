@@ -213,6 +213,11 @@ body {
     animation-duration: 10s;
 }
 
+
+@keyframes darkOverlay {
+    30% {}
+    100% {box-shadow: inset 0px 0px 200px 500px rgba(0, 0, 0, 0.9);}
+}
 #opening-scene-dark-overlay {
     position: absolute;
     top: 0;
@@ -220,7 +225,8 @@ body {
     height: 100%;
     z-index: 1000;
     box-shadow: inset 0px 0px 50px 100px rgba(0, 0, 0, 0.814);
-    border-radius: 0px;
+    animation-name: darkOverlay;
+    animation-duration: 15s;
 }
 
 #red-cover {

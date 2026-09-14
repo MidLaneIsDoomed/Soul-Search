@@ -149,6 +149,7 @@ function startGame() {
             setTimeout(() => {
                     johnsFriend2IMG.style.display = "block"
                     openingSceneChangeText()
+                    darkOverlayEnlarger();
             },1000)
 
             setTimeout(() => {
@@ -161,7 +162,7 @@ function startGame() {
     setTimeout(() => {
         openingScene.style.display = "none"
         clearInterval(noTimer);
-        clearInterval(johnsFriendsImgGlitchesTimer)
+        clearInterval(johnsFriendsImgGlitchesTimer);
         staticSound.pause();
     }, 15000)
 
@@ -253,9 +254,6 @@ function johnsFriendsImgGlitches() {
     }, 60)
 
 }
-
-
-const darkOverlay = document.getElementById("opening-scene-dark-overlay")
 
 
 /* Hides all rooms */
