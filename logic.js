@@ -242,7 +242,6 @@ gateways.forEach((gateway, currentGateway) => {
 
         console.log("pressed")
 
-        return 
     })
 
 }) 
