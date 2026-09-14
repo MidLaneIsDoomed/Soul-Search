@@ -105,12 +105,41 @@ const openingScene = document.getElementById("opening-scene")
 const johnsFriendIMG = document.getElementById("johns-friend-img")
 const johnsFriend2IMG = document.getElementById("johns-friend2-img")
 
+const staticSound = document.getElementById("static-sound");
+
 function startGame() {
 
     startingRoom.style.transition = "3s";
     startingRoom.style.opacity = "0";
 
     rooms[0].style.display = "block";
+
+
+    staticSound.play();
+    staticSound.volume = "0"
+
+    let volume = 0;
+
+    // const fadeIn1 = setInterval(() => {
+    //     volume += 0.01;
+    //     staticSound.volume = volume;    
+    // },1000)
+
+    setTimeout(() => {
+
+        // clearInterval(fadeIn1);
+
+        const fadeIn2 = setInterval(() => {
+            volume += 0.01;
+            staticSound.volume = volume;
+            // console.log("audio raised")
+
+            if(volume >= 0.7) {
+                clearInterval(fadeIn2);
+            } 
+        }, 50);
+
+    }, 3000);
 
     console.log("started!");
 
