@@ -107,6 +107,8 @@ const johnsFriend2IMG = document.getElementById("johns-friend2-img")
 
 const staticSound = document.getElementById("static-sound");
 
+const whiteFlash = document.getElementById("white-flash")
+
 function startGame() {
 
     startingRoom.style.transition = "3s";
@@ -160,10 +162,25 @@ function startGame() {
 
 
     setTimeout(() => {
-        openingScene.style.display = "none"
+
+        whiteFlash.style.opacity = "1";
+        whiteFlash.style.zIndex = "1001";
+
+    }, 14000)
+
+    setTimeout(() => {
+
+        openingScene.style.display = "none";
+
         clearInterval(noTimer);
         clearInterval(johnsFriendsImgGlitchesTimer);
+
         staticSound.pause();
+
+        setTimeout(() => {
+            whiteFlash.style.opacity = "0";
+        }, 1000)
+
     }, 15000)
 
 

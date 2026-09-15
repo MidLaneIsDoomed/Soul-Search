@@ -214,10 +214,10 @@ body {
 }
 
 
-@keyframes darkOverlay {
+/* @keyframes darkOverlay {
     30% {}
     100% {box-shadow: inset 0px 0px 200px 500px rgba(0, 0, 0, 0.9);}
-}
+} */
 #opening-scene-dark-overlay {
     position: absolute;
     top: 0;
@@ -319,4 +319,14 @@ body {
     font-family: roboto;
     position: fixed;
     text-shadow: 0 0 20px black;
+}
+
+#white-flash {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.896);
+    opacity: 0;
+    transition: 1s;
 }
