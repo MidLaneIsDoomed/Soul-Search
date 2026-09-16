@@ -42,11 +42,35 @@ body {
 /*#endregion */
 
 
-/* Main room */
+/* Global */
 .johnsRoom {
     width: 100vw;
     height: 100vh;
 }
+
+.john-speaking-bubble {
+    position: absolute;
+    z-index: 1005;
+    bottom: 10vh;
+    justify-self: center;
+    align-self: center;
+    transition: 0.2s;
+}
+
+.john-speaking-bubble h1 {
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    animation: typing 1.4s steps(40, end);
+    color:  rgba(221, 221, 221, 0.903);
+    font-family: roboto;
+    font-size: 3.5vw;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
 
 .rooms {
     z-index: 1;
@@ -201,6 +225,7 @@ body {
     }
 }
 #opening-scene {
+    overflow: hidden;
     display: none;
     position: absolute;
     top: 0;

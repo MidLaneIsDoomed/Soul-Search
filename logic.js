@@ -11,23 +11,6 @@ start.addEventListener("click", ()=> {
 
 });
 
-/* Takes you to the menu */
-
-// document.addEventListener("keydown", (eventESC)=> {
-//     if(eventESC.key === "Escape") {
-
-//        if(startingRoom.style.display === "none") {
-
-//         startingRoom.style.display = "block",
-
-
-//        }
-        
-//         console.log("meny")
-
-//     }
-// });
-
 
 /*Nav bar Gateways*/
 
@@ -141,6 +124,9 @@ function startGame() {
     setTimeout(() => {
         startingRoom.style.display = "none";
         openingScene.style.display = "flex"
+
+        rotateOpeningScene();
+
     },3000)
 
     setTimeout(() => {
@@ -151,7 +137,6 @@ function startGame() {
             setTimeout(() => {
                     johnsFriend2IMG.style.display = "block"
                     openingSceneChangeText()
-                    darkOverlayEnlarger();
             },1000)
 
             setTimeout(() => {
@@ -179,6 +164,24 @@ function startGame() {
 
         setTimeout(() => {
             whiteFlash.style.opacity = "0";
+            johnSpeakingBubble.style.display = "none";
+
+            setTimeout(() => {
+
+                showJohnsSpeakingBubble();
+                johnText.innerText = "That dream again...";
+                clearJohnSpeakingBubble();
+
+                setTimeout(() => {
+
+                    showJohnsSpeakingBubble();
+                    johnText.innerText = "Wait where the hell am I?";
+                    clearJohnSpeakingBubble();
+
+                }, 4000)
+
+            }, 1500)
+
         }, 1000)
 
     }, 15000)
@@ -212,6 +215,27 @@ function startGame() {
         }, 5000);
 
     }, 20000)
+
+}
+
+/* Rotates and scales openingScene */
+let rotateInterval;
+let rotation = 0;
+let scaling = 1;
+
+function rotateOpeningScene() { 
+
+    rotateInterval = setInterval(() =>{
+
+        rotation += 0.05;
+        scaling += 0.001
+
+        openingScene.style.transform = `rotate(${rotation}deg)`;
+        openingScene.style.scale = scaling;
+
+        console.log(rotation)
+
+    }, 20)
 
 }
 
@@ -337,4 +361,36 @@ gateways.forEach((gateway, currentGateway) => {
 
 }) 
 
-  
+
+/* Johns Speaking bubble */
+const johnSpeakingBubble = document.querySelector(".john-speaking-bubble")
+const johnText = johnSpeakingBubble.querySelector("h1")
+
+function clearJohnSpeakingBubble() {
+
+    setTimeout(() => {
+
+        johnSpeakingBubble.style.opacity = "0";
+
+        setTimeout(() => {
+
+            johnText.innerHTML = ""
+            johnSpeakingBubble.style.display = "none"
+
+        }, 500)
+
+    }, 3000)
+
+}
+
+function showJohnsSpeakingBubble() {
+
+    johnSpeakingBubble.style.display = "flex"
+
+    setTimeout(() => {
+
+        johnSpeakingBubble.style.opacity = "1"
+
+    }, 100)
+
+}
