@@ -200,7 +200,7 @@ function createNo() {
 
         noContainer.appendChild(noElement)
 
-    }, 25)
+    }, 50)
 
 }
 
