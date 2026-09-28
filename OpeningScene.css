@@ -150,3 +150,23 @@
     opacity: 0;
     transition: 1s;
 }
+
+
+@keyframes soulIMGanimation {
+    15% {width: 10vw; height: 10vw; top: 70vh;}
+    25% {top: 71vh; width: 10vw; height: 10vw; }
+    35% {top: 69vh;}
+    45% {top: 70vh; width: 9.5vw; height: 9.5vw; }
+    100% {top: 40vh; width: 0vw; height: 0vw;}
+}
+#john-soul-img {
+    position: absolute;
+    display: none;
+    width: 0vw;
+    height: 0vw;  
+    justify-self: center;
+    align-self: center;
+    top: 100vh;
+    animation-name: soulIMGanimation;
+    animation-duration: 10s;
+}

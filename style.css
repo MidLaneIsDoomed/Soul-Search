@@ -54,7 +54,7 @@ body {
     bottom: 10vh;
     justify-self: center;
     align-self: center;
-    transition: 0.2s;
+    transition: 0.1s;
 }
 
 .john-speaking-bubble h1 {

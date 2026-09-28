@@ -53,26 +53,30 @@ hyperlinks.forEach((Links, currentlink) => {
 
         rooms[currentlink].style.display = "block";
 
-        setTimeout(() => {
-            roomNumber.style.display = "block";
-            roomNumber.innerHTML =  currentlink + 1
-        },3000)
-        setTimeout(() => {
-            roomNumber.style.opacity = "1";
-        }, 3100)
-        setTimeout(() => {
-            roomNumber.style.opacity = "0"
-        },5000 )
-        setTimeout(() => {
-            roomNumber.style.display = "none"
-        },6000)
-      
-        setTimeout(() => {
 
-            rooms[currentlink].style.opacity = "1";
+        setTimeout(() =>{
 
-        }, 5500);
+            setTimeout(() => {
+                roomNumber.style.display = "block";
+                roomNumber.innerHTML =  currentlink + 1
+            },3000)
+            setTimeout(() => {
+                roomNumber.style.opacity = "1";
+            }, 3100)
+            setTimeout(() => {
+                roomNumber.style.opacity = "0"
+            },5000 )
+            setTimeout(() => {
+                roomNumber.style.display = "none"
+            },6000)
+        
+            setTimeout(() => {
 
+                rooms[currentlink].style.opacity = "1";
+
+            }, 5500);
+
+        }, 40000)
 
     });
 
@@ -94,7 +98,7 @@ function clearJohnSpeakingBubble() {
             johnText.innerHTML = ""
             johnSpeakingBubble.style.display = "none"
 
-        }, 500)
+        }, 100)
 
     }, 3000)
 
@@ -175,3 +179,7 @@ gateways.forEach((gateway, currentGateway) => {
     })
 
 }) 
+
+
+/* johns soul IMG */
+ const johnsSoulIMG = document.getElementById("john-soul-img")

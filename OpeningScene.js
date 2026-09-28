@@ -9,7 +9,7 @@ const johnsFriend2IMG = document.getElementById("johns-friend2-img")
 
 const staticSound = document.getElementById("static-sound");
 
-const whiteFlash = document.getElementById("white-flash")
+const whiteFlash = document.getElementById("white-flash");
 
 function startGame() {
 
@@ -63,7 +63,7 @@ function startGame() {
             setTimeout(() => {
                 noContainer.style.display = "flex"
                 NOGlitchEffect()
-            }, 4000)
+            }, 7000)
 
     },3500)
 
@@ -96,22 +96,56 @@ function startGame() {
             setTimeout(() => {
 
                 showJohnsSpeakingBubble();
-                johnText.innerText = "That dream again...";
+                johnText.innerText = "...";
                 clearJohnSpeakingBubble();
 
                 setTimeout(() => {
 
                     showJohnsSpeakingBubble();
-                    johnText.innerText = "Wait where the hell am I?";
+                    johnText.innerText = "That dream again...";
                     clearJohnSpeakingBubble();
 
-                }, 4000)
+                    setTimeout(() => {
 
-            }, 1500)
+                        showJohnsSpeakingBubble()
+                        johnText.innerText = "Where am I? why is it so dark?"
+                        clearJohnSpeakingBubble()
+
+                        setTimeout(() => {
+
+                            showJohnsSpeakingBubble()
+                            johnText.innerText = "Did I...   die?";
+                            clearJohnSpeakingBubble()
+
+                            setTimeout(() => {
+
+                                johnsSoulIMG.style.display = "flex";
+
+                                setTimeout(() => {
+
+                                    showJohnsSpeakingBubble()
+                                    johnText.innerText = "Is that   My soul?"
+
+                                }, 12500) /* is that   My soul? */
+
+                            }, 11000) /* Soul shows */
+
+                        }, 8000) /* "Did I...  die?" */
+
+                    }, 6500) /* "Where am I why is it so dark?" */
+
+                }, 3500) /* "That dream again..." */
+
+            }, 2500) /* "..." */
 
         }, 1000)
 
     }, 15000)
+
+
+    if(johnsSoulIMG.style.top === "40vh") {
+        johnsSoulIMG.style.display = "none"
+    }
 
 
     setTimeout(() => {
@@ -141,7 +175,7 @@ function startGame() {
             rooms[0].style.opacity = "1";
         }, 5000);
 
-    }, 20000)
+    }, 45000)
 
 }
 
@@ -187,13 +221,18 @@ const noContainer = document.getElementById("no-container")
 const NOText = noContainer.querySelector("p");
 let NoTimer;
 let NOColorTimer;
+let NOScaling = 1;
 
 function NOGlitchEffect() {
 
     NOColorTimer =  setInterval(() => {
 
-        NOText.style.opacity = Math.random();
+        NOText.style.opacity = Math.random() + 0.4;
         NOText.style.color = "red"; 
+
+        NOScaling += 0.02;
+
+        NOText.style.scale = NOScaling;
 
     }, 100)
 
