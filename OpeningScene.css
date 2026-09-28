@@ -124,13 +124,19 @@
     z-index: 103;
     top: 0vh;
     display: none;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 #no-container p{
     color: white;
-    font-size: 20vw;
+    font-size: 80vw;
+    font-weight: 300;
+    letter-spacing: 1vw;
     font-family: roboto;
-    position: fixed;
+    position: absolute;
     text-shadow: 0 0 20px black;
     margin: 0;
 }

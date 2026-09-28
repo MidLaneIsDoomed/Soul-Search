@@ -18,7 +18,7 @@ function startGame() {
 
     rooms[0].style.display = "block";
 
-    noContainer.style.display = "block";
+    
 
 
     staticSound.play();
@@ -61,7 +61,8 @@ function startGame() {
             },1000)
 
             setTimeout(() => {
-                createNo();
+                noContainer.style.display = "flex"
+                NOGlitchEffect()
             }, 4000)
 
     },3500)
@@ -78,10 +79,11 @@ function startGame() {
 
         openingScene.style.display = "none";
 
-        noContainer.innerHTML = "";
-        noContainer.style.display = "none";
+        noContainer.style.display = "none"
 
-        clearInterval(noTimer);
+        clearInterval(NOColorTimer);
+        clearInterval(NoTimer);
+
         clearInterval(johnsFriendsImgGlitchesTimer);
         clearInterval(rotateInterval);
 
@@ -180,58 +182,34 @@ function openingSceneChangeText() {
 }
 
 
+/* Glitch effect on NO */
 const noContainer = document.getElementById("no-container")
-let noTimer;
+const NOText = noContainer.querySelector("p");
+let NoTimer;
+let NOColorTimer;
 
-function createNo() {
+function NOGlitchEffect() {
 
-    noTimer = setInterval( () => {
+    NOColorTimer =  setInterval(() => {
 
-        let noElement = document.createElement("p")
+        NOText.style.opacity = Math.random();
+        NOText.style.color = "red"; 
 
-        noElement.innerText = "No"
-        
-        const x = Math.random() * window.innerWidth - 100;
-        const y = Math.random() * window.innerHeight - 230;
+    }, 100)
 
-        noElement.style.left = x + "px";
-        noElement.style.top = y + "px";
+    NoTimer = setInterval(() => {
 
+        NOText.style.left = Math.random() + "vw";
+        NOText.style.top = Math.random() - 50 + "vh";
+        NOText.style.color = "white";
 
-        noContainer.appendChild(noElement)
-
-    }, 50)
+    }, 20)
 
 }
 
-/* Removes the overflow No elemts */
-// let cleanupInterval;
-
-// function startCleanup() {
-//     cleanupInterval = setInterval(() => {
-//         const elements = document.querySelectorAll(".your-fault");
-
-//         elements.forEach(element => {
-//             const rect = element.getBoundingClientRect();
-
-//             if (
-//                 rect.right < 0 ||
-//                 rect.left > window.innerWidth ||
-//                 rect.bottom < 0 ||
-//                 rect.top > window.innerHeight
-//             ) {
-//                 element.remove();
-//             }
-//         }); 
-
-//     }, 500); 
-// }
-
-// function stopCleanup() {
-//     clearInterval(cleanupInterval);
-// }
 
 
+/* Johns freind IMG's glitch effect */
 let johnsFriendsImgGlitchesTimer;
 
 function johnsFriendsImgGlitches() {
