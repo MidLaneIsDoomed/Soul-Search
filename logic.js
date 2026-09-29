@@ -83,6 +83,12 @@ hyperlinks.forEach((Links, currentlink) => {
 });
 
 
+/* Titel hover effect */
+const titel = document.getElementById("soul-search-title")
+
+
+
+
 /* Johns Speaking bubble */
 const johnSpeakingBubble = document.querySelector(".john-speaking-bubble")
 const johnText = johnSpeakingBubble.querySelector("h1")
@@ -111,6 +117,40 @@ function showJohnsSpeakingBubble() {
     setTimeout(() => {
 
         johnSpeakingBubble.style.opacity = "1"
+
+    }, 100)
+
+}
+
+
+/* devils speaking bubble */ 
+const devilSpeakingBubble = document.getElementById("devil-speaking-bubble")
+const devilText = devilSpeakingBubble.querySelector("h1")
+
+function clearDevilSpeakingBubble() {
+
+    setTimeout(() => {
+
+        devilSpeakingBubble.style.opacity = "0";
+
+        setTimeout(() => {
+
+            devilText.innerHTML = "";
+            devilSpeakingBubble.style.display = "none"
+
+        }, 100)
+
+    }, 3000)
+
+}
+
+function showDevilsSpeakingBubble() {
+
+    devilSpeakingBubble.style.display = "flex";
+
+    setTimeout(() => {
+
+        devilSpeakingBubble.style.opacity = "1";
 
     }, 100)
 

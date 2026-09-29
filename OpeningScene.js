@@ -125,14 +125,29 @@ function startGame() {
 
                                     showJohnsSpeakingBubble()
                                     johnText.innerText = "Is that   My soul?"
+                                    clearJohnSpeakingBubble()
 
-                                }, 12500) /* is that   My soul? */
+                                    setTimeout(() => {
 
-                            }, 11000) /* Soul shows */
+                                        showDevilsSpeakingBubble()
+                                        devilText.innerText = "Unlock the doors to save your soul"
+                                        
+                                        setTimeout(() => {
 
-                        }, 8000) /* "Did I...  die?" */
+                                            devilSpeakingBubble.style.opacity = "0";
 
-                    }, 6500) /* "Where am I why is it so dark?" */
+
+                                        }, 2500)
+
+                                    }, 4000) /* Unlock the doors to save your soul -devil */    
+
+                                }, 2000) /* is that   My soul? */
+
+                            }, 4000) /* Soul shows */
+
+                        }, 6500) /* "Did I...  die?" */
+
+                    }, 4500) /* "Where am I why is it so dark?" */
 
                 }, 3500) /* "That dream again..." */
 
